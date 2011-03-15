@@ -1,0 +1,22 @@
+<h1>Scheduler#new</h1>
+<table>
+  <tr>
+  <th>Rank</th>
+  <th>First Name</th>
+  <th>Last Name</th>
+  </tr>
+  <tr>
+  <% form_tag :action => 'new' do %>
+   <% @schedulers.each_with_index do |schedule, index| %>
+     <% fields_for "schedulers[#{index}]", schedule do |f| %>
+       <th><%= f.text_field :age  %></th>
+       <th><%= f.text_field :first_name  %></th>
+       <th><%= f.text_field :last_name  %></th>
+  <% end %>
+  </tr>
+       <% end %>
+</table>
+<p>
+   <%= submit_tag "Create Schedule" %>
+   <% end %>
+</p>
